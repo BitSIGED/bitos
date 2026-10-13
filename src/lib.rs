@@ -1,13 +1,14 @@
 #![feature(lang_items)]
+#![allow(internal_features)]
 #![no_std]
 
 extern crate rlibc;
 
+mod vga_buff;
 
 #[unsafe(no_mangle)]
 pub extern "C" fn rust_init() {
-    let ptr: *mut u64 = (0xb8000 as *mut u64);
-    unsafe { *ptr = 0x2f592f412f4b2f4f }; 
+    println!("Hello World{}", "!");
 }
 
 #[lang = "eh_personality"]
