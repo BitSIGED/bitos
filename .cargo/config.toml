@@ -1,0 +1,14 @@
+[unstable]
+json-target-spec = true
+build-std-features = ["compiler-builtins-mem"]
+#build-std = ["core", "compiler_builtins"]
+
+
+# when we renable the allocator 
+build-std = ["core", "compiler_builtins", "alloc"]
+
+[build]
+target = "x86_64-bitos.json"
+
+[target.'cfg(target_os = "none")']
+runner = "bootimage runner"
